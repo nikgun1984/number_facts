@@ -5,7 +5,7 @@ let part1,
 document.getElementById("form1").addEventListener("submit", function (evt) {
     evt.preventDefault();
     const num = document.getElementById("number1").value;
-    axios.get(`https://numbersapi.com/${num}?json`)
+    axios.get(`http://numbersapi.com/${num}?json`)
         .then(data => numberFacts(1, data))
         .catch(err => console.log(err));
 });
@@ -53,7 +53,7 @@ function partTwo() {
 function partThree(num) {
     const numberList = [];
     for (let i = 0; i < 4; i++) {
-        numberList.push(axios.get(`https://numbersapi.com/${num}?json`));
+        numberList.push(axios.get(`http://numbersapi.com/${num}?json`));
     }
     document.querySelector("#part3").innerHTML += `<h3>Number ${num} Facts</h3>`
     console.log(numberList);
