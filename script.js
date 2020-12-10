@@ -5,7 +5,7 @@ let part1,
 document.getElementById("form1").addEventListener("submit", function (evt) {
     evt.preventDefault();
     const num = document.getElementById("number1").value;
-    axios.get(`http://numbersapi.com/${num}?json`)
+    axios.get(`//numbersapi.com/${num}?json`)
         .then(data => numberFacts(1, data))
         .catch(err => console.log(err));
 });
@@ -40,7 +40,7 @@ function partTwo() {
     const numberOfnumbers = Math.floor(Math.random() * 20);
     const numberList = [];
     for (let i = 0; i < numberOfnumbers; i++) {
-        numberList.push(axios.get(`http://numbersapi.com/${Math.floor(Math.random() * 100)}?json`));
+        numberList.push(axios.get(`//numbersapi.com/${Math.floor(Math.random() * 100)}?json`));
     }
     Promise.all(numberList)
         .then(numArr => (
@@ -52,7 +52,7 @@ function partTwo() {
 function partThree(num) {
     const numberList = [];
     for (let i = 0; i < 4; i++) {
-        numberList.push(axios.get(`http://numbersapi.com/${num}?json`));
+        numberList.push(axios.get(`//numbersapi.com/${num}?json`));
     }
     document.querySelector("#part3").innerHTML += `<h3>Number ${num} Facts</h3>`
     const ul = document.createElement('ul');
