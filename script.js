@@ -14,14 +14,14 @@ document.querySelector("a#p1").addEventListener('click', function (evt) {
     if (!(!!(document.getElementById("number1").value))) {
         setTimeout(function () {
             document.querySelector("p#move-on").remove();
-        }, 2000);
+        }, 7000);
         document.querySelector("#part1").innerHTML += `<p id="move-on">You need check Part 1 before moving on</p>`;
+    } else {
+        evt.preventDefault();
+        partTwo();
+        document.querySelector(part1).style.display = 'none';
+        document.querySelector(part2).style.display = 'block';
     }
-    evt.preventDefault();
-    console.log(part1);
-    document.querySelector(part1).style.display = 'none';
-    document.querySelector(part2).style.display = 'block';
-    partTwo();
 });
 
 document.querySelector("a#p2").addEventListener('click', function (evt) {
@@ -42,7 +42,6 @@ function partTwo() {
     for (let i = 0; i < numberOfnumbers; i++) {
         numberList.push(axios.get(`http://numbersapi.com/${Math.floor(Math.random() * 100)}?json`));
     }
-    console.log(numberList);
     Promise.all(numberList)
         .then(numArr => (
             numArr.forEach(num => numberFacts(2, num))
@@ -56,7 +55,6 @@ function partThree(num) {
         numberList.push(axios.get(`http://numbersapi.com/${num}?json`));
     }
     document.querySelector("#part3").innerHTML += `<h3>Number ${num} Facts</h3>`
-    console.log(numberList);
     const ul = document.createElement('ul');
     document.querySelector("#part3").append(ul);
     ul.setAttribute("id", `num${++count}`);
