@@ -8,7 +8,38 @@
         </title>
     </head>
     <body>
-
+        <div id="main">
+            <div id="part1">
+                <h1 id="h1">
+                    Part 1
+                </h1>
+                <a href="" id="p1">
+                    Go to Part 2
+                </a>
+                <form action="" id="form1">
+                    <input type="number" name="number1" id="number1" required>
+                    <input type="submit" value="Get Number Info">
+                </form>
+            </div>
+            <div id="part2" style="display: none;">
+                <h1>
+                    Part 2
+                </h1>
+                <a href="" id="p2">
+                    Go to Part 3
+                </a>
+            </div>
+            <div id="part3" style="display: none;">
+                <h1>
+                    Part 3
+                </h1>
+                <form action="" id="form2">
+                    <input type="number" name="number2" id="number2" required>
+                    <input type="submit" value="Get All Number Info">
+                </form>
+            </div>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.js"></script>
         <script src="script.js"></script>
     </body>
 </html>
